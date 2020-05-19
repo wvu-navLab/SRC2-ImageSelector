@@ -45,7 +45,7 @@ class ImageSelector
     
 
     		std::vector<cv::Vec4i> lines;
-    		cv::HoughLinesP(edges, lines, 1, CV_PI/180, 40, 40, 10); // Detect lines
+    		cv::HoughLinesP(edges, lines, 1, CV_PI/180, 30, 30, 10); // Detect lines
     		int count=0;
     		
     		if (lines.size() > 500)     // Lots of lines indicate a high noise
