@@ -45,17 +45,17 @@ class ImageSelector
     
 
     		std::vector<cv::Vec4i> lines;
-    		cv::HoughLinesP(edges, lines, 1, CV_PI/180, 30, 30, 10); // Detect lines
+    		cv::HoughLinesP(edges, lines, 1, CV_PI/180, 25, 25, 10); // Detect lines
     		int count=0;
     		
-    		if (lines.size() > 500)     // Lots of lines indicate a high noise
+    		if (lines.size() > 1000)     // Lots of lines indicate a high noise
        			count=500;
     		else			    // Looks for horizontal lines close to the borders	
        			for (size_t i=0; i<lines.size(); i++) {
           			cv::Vec4i l = lines[i];
           			cv::Point a(l[0], l[1]);
           			cv::Point b(l[2], l[3]);
-          			line(cv_ptr->image, a, b, cv::Scalar(255, 0, 0), 3, cv::LINE_AA);
+          			//line(cv_ptr->image, a, b, cv::Scalar(255, 0, 0), 3, cv::LINE_AA);
           			float slope=float(float(b.y - a.y) / float(b.x - a.x));
           			//ROS_INFO("%f %d %d %d %d", slope, a.x, a.y, b.x, b.y);
           			if ((fabs(slope) < 0.0001) && ((a.x<10) || b.x > 630))  // horizontal lines that start at righ borders or finish at the left border
