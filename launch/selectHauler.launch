@@ -1,11 +1,13 @@
 <launch>
-	<node name="image_selector_left" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
-    		<remap from="/camera/image_raw" to="/hauler_1/camera/left/image_raw" />
-		<remap from="/camera/sel/image_raw" to="/hauler_1/camera/left_sel/image_raw" />
-	</node>
+	<group ns="hauler_1">
+		<node name="image_selector_left" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
+				<remap from="/camera/image_raw" to="/hauler_1/camera/left/image_raw" />
+			<remap from="/camera/sel/image_raw" to="/hauler_1/camera/left_sel/image_raw" />
+		</node>
 
-	<node name="image_selector_right" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
-    		<remap from="/camera/image_raw" to="/hauler_1/camera/right/image_raw" />
-		<remap from="/camera/sel/image_raw" to="/hauler_1/camera/right_sel/image_raw" />
-	</node>
+		<node name="image_selector_right" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
+				<remap from="/camera/image_raw" to="/hauler_1/camera/right/image_raw" />
+			<remap from="/camera/sel/image_raw" to="/hauler_1/camera/right_sel/image_raw" />
+		</node>
+	</group>	
 </launch>
