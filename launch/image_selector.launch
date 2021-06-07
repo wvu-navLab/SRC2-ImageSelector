@@ -1,0 +1,7 @@
+<launch>
+	<node name="image_selector_left" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
+	</node>
+
+	<node name="image_selector_right" pkg="image_selection" type="image_selection_image_selector_node" output="screen">
+	</node>
+</launch>

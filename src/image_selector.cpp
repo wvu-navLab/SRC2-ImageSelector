@@ -16,8 +16,8 @@ class ImageSelector
     	ImageSelector(): it(nh)
   	{
     
-    	    sub = it.subscribeCamera("/camera/image_raw", 1, &ImageSelector::imageCallback, this);
-	    pub = it.advertiseCamera("/camera/sel/image_raw", 1);
+    	sub = it.subscribeCamera("camera/image_raw", 1, &ImageSelector::imageCallback, this);
+	    pub = it.advertiseCamera("camera/sel/image_raw", 1);
 #ifdef SHOWIMAGES
 	    cv::namedWindow("original");
  	    cv::namedWindow("edges");
